@@ -79,6 +79,9 @@ jobs:
           git commit -am "CI: Update gl4es"
           git push
 
+      - name: Install dependencies
+        run: brew install make ldid dpkg
+
       - name: Build for ${{ matrix.platform_name }}
         run: |
           export PATH=/opt/homebrew/bin:$PATH
