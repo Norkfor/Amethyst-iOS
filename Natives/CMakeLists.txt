@@ -201,6 +201,7 @@ target_link_libraries(AngelAuraAmethyst
   "-framework UnzipKit"
   "-framework WebKit"
   "-weak_framework SafariServices"
+  "-Wl,-U,__UISolariumEnabled"
 )
 set_target_properties(AngelAuraAmethyst PROPERTIES
   MACOSX_BUNDLE TRUE
