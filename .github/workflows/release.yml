@@ -114,6 +114,9 @@ jobs:
           branch: buildjre17-21
           name: jre21-ios-aarch64
 
+      - name: Install dependencies
+        run: brew install make ldid dpkg
+
       - name: Build for ${{ matrix.platform_name }}
         run: |
           export PATH=/opt/procursus/bin:/opt/homebrew/bin:$PATH
