@@ -4,8 +4,14 @@
 
 - (void)loginWithCallback:(Callback)callback {
     self.authData[@"oldusername"] = self.authData[@"username"] = self.authData[@"input"];
-    self.authData[@"profileId"] = @"00000000-0000-0000-0000-000000000000";
+    // Generate a random offline UUID to avoid Minecraft treating the account as demo
+    self.authData[@"profileId"] = [self generateOfflineUUID];
     callback(nil, [super saveChanges]);
+}
+
+- (NSString *)generateOfflineUUID {
+    NSUUID *uuid = [NSUUID UUID];
+    return [uuid UUIDString];
 }
 
 - (void)refreshTokenWithCallback:(Callback)callback {
